@@ -6,7 +6,7 @@ bool keepRunning = true;
 while (keepRunning)
 {
 	// Main menu. Loops until exit.
-	Console.WriteLine("Main Menu:");
+	Console.WriteLine("\nMain Menu:");
 	Console.WriteLine("1. Add (+)");
 	Console.WriteLine("2. Subtract (-)");
 	Console.WriteLine("3. Multiply (x)");
@@ -45,13 +45,18 @@ while (keepRunning)
 			result = input1 * input2;
 			break;
 		case "4":
+			if (input2 == 0)
+			{
+				Console.WriteLine("\nWhoa there, Traveller! We don't divide by zero here!");
+				continue;
+			}
 			result = input1 / input2;
 			break;
 		default:
-			Console.WriteLine("You didn't input the correct choice, Traveller.\n");
+			Console.WriteLine("\nYou didn't input the correct choice, Traveller.");
 			continue;
 	}
 	
-	Console.WriteLine($"\nYour result, Traveller: {result}\n");
+	Console.WriteLine($"\nYour result, Traveller: {result:0.##}");
 }
 Console.WriteLine("Come back again, Traveller!");
