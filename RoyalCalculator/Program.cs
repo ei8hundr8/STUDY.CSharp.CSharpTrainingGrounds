@@ -11,14 +11,16 @@ while (keepRunning)
 	Console.WriteLine("2. Subtract (-)");
 	Console.WriteLine("3. Multiply (x)");
 	Console.WriteLine("4. Divide (/)");
-	Console.WriteLine("5. Let me out!\n");
+	Console.WriteLine("5. Square (x²)"); // Hold Alt then type in 0178
+	Console.WriteLine("6. Squareroot (√x)"); // Supposedly it's Alt+251 but this laptop couldn't do it. So just copypaste instead.
+	Console.WriteLine("7. Let me out!\n");
 
 	// User selection.
 	Console.WriteLine("What do you wish to do, Traveller?");
 	string choice = Console.ReadLine();
 
 	// Exit calculator.
-	if (choice == "5")
+	if (choice == "7")
 	{
 		keepRunning = false;
 		continue; // Breaks out of the loop
@@ -45,12 +47,23 @@ while (keepRunning)
 			result = input1 * input2;
 			break;
 		case "4":
-			if (input2 == 0)
+			if (input2 == 0) // Making sure we're not dividing by zero.
 			{
 				Console.WriteLine("\nWhoa there, Traveller! We don't divide by zero here!");
 				continue;
 			}
 			result = input1 / input2;
+			break;
+		case "5":
+			result = Math.Pow(input1,2);
+			break;
+		case "6":
+			if (input1 < 0)
+			{
+				Console.WriteLine("\nWhoa Traveller! We can't square root a negative number!");
+				continue;
+			}
+			result = Math.Sqrt(input1);
 			break;
 		default:
 			Console.WriteLine("\nYou didn't input the correct choice, Traveller.");
