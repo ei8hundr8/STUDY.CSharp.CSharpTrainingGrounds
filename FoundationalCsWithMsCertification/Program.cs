@@ -5,31 +5,29 @@
 		static void Main(string[] args)
 		{
 			/*
-			 * Suppose you work for a manufacturing company. The company needs you to complete an inventory of your warehouse to determine the number of products that are ready to ship. 
-			 * In addition to the total number of finished products, you need to report the number of finished products stored in each individual bin in your warehouse, along with a running total. 
-			 * This running total will be used to create an audit trail so you can double-check your work and identify "shrinkage".
+			 * Fraudulent order challenge
+			 * Earlier in this module, you set out to write code that would store Order IDs belonging to potentially fraudulent orders. 
+			 * Your goal is to find fraudulent orders as early as possible and flag them for deeper analysis.
+			 * 
+			 * Code challenge - Report the Order IDs that need further investigation
+			 * Your team has found a pattern. Orders that start with the letter "B" encounter fraud at a rate 25 times greater than the normal rate. 
+			 * You write new code that outputs the Order ID of new orders where the Order ID starts with the letter "B". This will be used by the fraud team to investigate further.
 			 * 
 			 * Expected Output:
-			 * Bin 1 = 200 items (Running total: 200)
-			 * Bin 2 = 450 items (Running total: 650)
-			 * Bin 3 = 700 items (Running total: 1350)
-			 * Bin 4 = 175 items (Running total: 1525)
-			 * Bin 5 = 250 items (Running total: 1775)
-			 * We have 1775 items in inventory.
+			 * B123
+			 * B177
+			 * B179
 			*/
-			int[] inventory = [200, 450, 700, 175, 250];
-			int sum = 0;
-			int bin = 0;
+			string[] fraudOrderIDs = ["B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179"];
 
-			foreach (int item in inventory)
+			foreach (var id in fraudOrderIDs)
 			{
-				sum += item;
-				bin++;
-				Console.WriteLine($"Bin {bin} = {item} items (Running total: {sum})");
+				if (id.StartsWith("B"))
+				{
+					Console.WriteLine(id);
+				}
 			}
 
-			Console.WriteLine($"We have {sum} items in inventory.");
 		}
-
 	}
 }
