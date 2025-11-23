@@ -5,28 +5,34 @@
 		static void Main(string[] args)
 		{
 			/*
-			 * Fraudulent order challenge
-			 * Earlier in this module, you set out to write code that would store Order IDs belonging to potentially fraudulent orders. 
-			 * Your goal is to find fraudulent orders as early as possible and flag them for deeper analysis.
-			 * 
-			 * Code challenge - Report the Order IDs that need further investigation
-			 * Your team has found a pattern. Orders that start with the letter "B" encounter fraud at a rate 25 times greater than the normal rate. 
-			 * You write new code that outputs the Order ID of new orders where the Order ID starts with the letter "B". This will be used by the fraud team to investigate further.
-			 * 
-			 * Expected Output:
-			 * B123
-			 * B177
-			 * B179
+			 * Code readability challenge
+			 * In this challenge, you'll use the techniques you learned in this module to improve the readability of a code sample. 
+			 * You are provided with a code sample that is poorly styled and commented. 
+			 * Your goal is to update the code using style guidelines for variable names, code comments, and whitespace to improve code readability.
 			*/
-			string[] fraudOrderIDs = ["B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179"];
 
-			foreach (var id in fraudOrderIDs)
-			{
-				if (id.StartsWith("B"))
-				{
-					Console.WriteLine(id);
+			/*
+			 * The code below reverse the sentence, counts the number of times a certain character appears, and finally output both to the terminal.
+			 */
+			string str = "The quick brown fox jumps over the lazy dog.";
+			
+			char[] charMessage = str.ToCharArray();
+			Array.Reverse(charMessage);
+			
+			int x = 0;
+
+			foreach (char i in charMessage) 
+				{ 
+					if (i == 'o') 
+						{ 
+							x++;
+						} 
 				}
-			}
+
+			string new_message = new String(charMessage);
+
+			Console.WriteLine(new_message);
+			Console.WriteLine($"'o' appears {x} times.");
 
 		}
 	}
